@@ -1,22 +1,5 @@
-import './App.css';
 
-function App({ obj1, obj2 }) {
-  const objectCompared = deepEqual(obj1, obj2);
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <div className="App-link" data-testid={'comparison-result'}>
-          <span>Comparison Value is - {`${objectCompared}`}</span>
-        </div>
-      </header>
-    </div>
-  );
-}
-
-export default App;
-
-function removeUndefinedValues(oldObj) {
+const removeUndefinedValues = (oldObj) => {
   const keysToKeep = Object.keys(oldObj).filter(
       (key)=> {
         return (oldObj[key] !== undefined)
@@ -30,7 +13,7 @@ function removeUndefinedValues(oldObj) {
   return newObj
 }
 
-function deepCompareObjects(obj1, obj2) {
+const deepCompareObjects = (obj1, obj2) => {
   if (obj1 === obj2) {
     return true;
   }
@@ -51,8 +34,7 @@ function deepCompareObjects(obj1, obj2) {
   return true;
 }
 
-
-function deepEqual (obj1, obj2) {
+const deepEqual = (obj1, obj2) => {
   if (obj1 === obj2) {
     return true;
   }
@@ -67,3 +49,5 @@ function deepEqual (obj1, obj2) {
   const checkEquality = deepCompareObjects(newObj1, newObj2);
   return checkEquality
 }
+
+module.exports = deepEqual;
