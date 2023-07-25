@@ -18,13 +18,11 @@ describe("deepEqual", () => {
     expect(deepEqual({ name: "Bob" }, { name: "Bob" })).to.equal(true);
   });
 
-
   it("should return true given two objects", () => {
     expect(deepEqual({ name: "Bob" }, { name: "Bob", email: undefined })).to.equal(true);
   });
 
-
-  it("should return false given two objects", () => {
+  it("should return false given two unequal objects with boolean", () => {
     expect(deepEqual({ name: "Bob" }, { name: "Bob", email: 'test@test.com'  })).to.equal(false);
   });
 
@@ -32,7 +30,7 @@ describe("deepEqual", () => {
     expect(deepEqual({isBoolean: true}, {isBoolean: true, email: undefined})).to.equal(true);
   });
 
-  it("should return true given two objects", () => {
+  it("should return true given two objects with number", () => {
     expect(deepEqual({number: 4}, {number: 4, email: undefined})).to.equal(true);
   });
 
